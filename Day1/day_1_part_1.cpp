@@ -22,12 +22,14 @@ int main()
     {
         numsA.push_back(numA);
         numsB.push_back(numB);
-        std::sort(numsA.begin(), numsA.end());
-        std::sort(numsB.begin(), numsB.end());
     }
 
-    infile.close();
+    
 
+    infile.close();
+    std::sort(numsA.begin(), numsA.end());
+    std::sort(numsB.begin(), numsB.end());
+    
     for(int i=0; i< numsA.size(); i++)
     {
         total += abs(numsA[i] - numsB[i]);
