@@ -30,4 +30,40 @@ Day 1 part 2:
     Solution:
         Planned solution worked like a charm. Seemed very quick, and I think the early exit definitely helped the runtime. Not sure if this is the best solution, but it seems pretty good to me. 
 
+Day 2 part 1:
+    Problem: 
+        There is some unusual data. 
+        The data is separated into 1 report per line(a series of numbers per line)
+        Each number is a "Level" separated by spaces. 
+        Reports are considered safe if the numbers in a line are all either decreasing or increasing, and any 2 adjacent numbers must change by at least 1 number but no more than 3. 
+        Need to determine how many reports are safe. 
+        ADDED PROBLEM STATEMENT: The number of levels isn't always consistent. 
+
+    Plan: 
+        Read in each line. At time of read in, look at each number and make sure that:
+            1. Each number is either increasing or decreasing, but not both.
+                Can probably do this by just determining it from the first two numbers and ensuring that the pattern continues.  
+            2. Each change between numbers is between 1 and 3 inclusive.
+                Easy enough, just check the diff and if it is above 3 or less than 1 exit early. 
+        If both conditions are met, add 1 to total number of safe reports. 
+        Need to read in all numbers per line into a temp container and then loop through that container. 
+
+    Solution: 
+        Ended up pretty similar to my expectation, but needed to look some things up. On my first attempt I didn't realize that the puzzle input may have more than 5 elements per line, which caused me to be off by quite a bit. Once I updated to be more dynamic I had to check that it was always increasing or decreasing(Turns out this is called monotonic), and while checking I went ahead and checked that it was also within our range of 1 >= x <= 3. Then I just needed to make sure that we didn't try to access/perform math on an element beyond the range of our vector. 
+
+Day 2 Part 2: 
+    Problem:
+        The solution to Day 1 seems low. 1 violation per line is actually acceptable.
+        If greater than 2 violations occur, then it is an invalid level. 
+        Everything else remains the same. 
+    Plan: 
+        I think if we hit a violation we can simply remove that element and re-run, maybe add to a violation count. If violation count is ever greater than 1 we return false. Basically in the loop:
+                    If we find violation check the violation count
+                    if greater than 1 return false
+                    else increase violation count, remove this element, decrease iterator by 1, and continue the check. 
+    Solution: 
+        Yeah, this one gave me massive issues and I had to rework a bit. 
+        I kept the ismonotonicwithinrange and instead of doing any targeted removal I just retry it removing 1 element at a time and seeing if it works that way. 
+
+
 
