@@ -65,5 +65,28 @@ Day 2 Part 2:
         Yeah, this one gave me massive issues and I had to rework a bit. 
         I kept the ismonotonicwithinrange and instead of doing any targeted removal I just retry it removing 1 element at a time and seeing if it works that way. 
 
+Day 3 Part 1: 
+    Problem: 
+        Computer memory is corrupted. All instructions have been jumbled up. 
+        Goal of program is to multiply numbers. Has instructions with a function format and two 1-3 digit numbers as input. 
+        Characters that should be ignored are also part of the instructions, such as spaces and special characters.
+    Plan: 
+        Probably do a regex to find just mul(Numbers). Seems like we don't need to strip out excess characters from within a valid mul function call, guessing that will be part 2. 
+        So format we are looking for is simply mul(X,Y) no special characters, no spaces. The call for mul CAN have things leading into it though, such as _mul(x,y) being valid. 
+        Could probably skip regex and simply do a bunch of char scanning logic, but that will be a last resort. 
+    Solution: 
+        Basically what I said and Regex sucks. 
+    
+Day 3 Part 2: 
+    Problem: 
+        There are Do and Don't instructions that enable and disable the mul functions. 
+        When Do is the last one read we continue adding the values. When Don't is the last one read we stop adding them. 
+        It starts enabled. 
+    Plan: 
+        I'm thinking this time we read each line and look for the instances of do / don't. Basically create substrings that exist between these values and then run the regex against those. 
+    Solution: 
+        
+
+
 
 
