@@ -85,7 +85,23 @@ Day 3 Part 2:
     Plan: 
         I'm thinking this time we read each line and look for the instances of do / don't. Basically create substrings that exist between these values and then run the regex against those. 
     Solution: 
-        
+        This one was harder than I wanted it to be for me. Had to make a function to extract the strings between do's and don't's into a new string, then ran the previous mul(x,y) parsing logic against the new string. Because it needed to be enable by default I "cheated" and added the word do to the very beginning of the input string before reading in the lines. Seems like it is O(n*m*r) which I think is sufficient. 
+
+Day 4 Part 1: 
+    Problem: 
+        It's a word search. Ugh....2D array stuff again. Need to find all instances of the word XMAS forward, backward, Up, Down, and Diagnols. 
+    Plan: 
+        Tedious 2D Array logic. Gonna go 1 character at a time, check to see if it's an X, then check all valid directions for M, then have to continue checking solely in that direction for the A and S. Should be simple, but gonna be time consuming I think. 
+    Solution: 
+        Used Vectors of vectors and had no real problem with this. Solution worked on first attempt. 
+
+Day 4 Part 2: 
+    Problem: 
+        It wasn't supposed to be XMAS it was suppossed to be MAS in X form as in M A S and M A S must cross. Can be forward or backwards but has to be a cross. 
+    Plan: 
+        This is a little more complicated, but I'm thinking about starting by looking for A's then checking the (upLeft, downRight) and (upRight, downLeft) positions for word completion. The tricky part is making sure both are true, but I think I can only check for the other if the first is correct. Can probably re-use a good portion of what I have already. 
+    Solution: 
+        Removed the match function and changed it to a much simpler xpattern match that was just a few conditions, also simplified the count function as it didn't need all of the direction callouts since the word find was actually simpler. Not sure if this is the most efficient, but it was the quickest to develop. 
 
 
 
