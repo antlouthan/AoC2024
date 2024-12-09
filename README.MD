@@ -103,6 +103,32 @@ Day 4 Part 2:
     Solution: 
         Removed the match function and changed it to a much simpler xpattern match that was just a few conditions, also simplified the count function as it didn't need all of the direction callouts since the word find was actually simpler. Not sure if this is the most efficient, but it was the quickest to develop. 
 
+Day 5 Part 1: 
+    Problem: 
+        We have two sets of inputs. 1 is rules for page updates, the other is a list of page updates to be done. We need to filter out all of the updates to be done that are invalid according to the rules, and then get the middle number for each valid update and add it to a running total. 
+        Rules stipulate 2 numbers, the first is a page number, the second is what pages MUST come after it. 
+        The Update list is a list of pages in the order of their updates. 
+        The list of pages must adhere to all rules if it is to be considered valid. 
+    Plan: 
+        First we need to read in the instructions into a series of pairs and the page updates into a 2D container. 
+        Then we need to look at each line of updates and make sure that they are in the correct order based on the rules.
+            I think the best way to do this would actually be to loop through each line backwards and ensure that each page from right to left is ONLY behind pages that are valid. 
+            If a line is valid we add it to a new vector and return that at the end of the function. 
+            Once we have the valid lines, we should loop through each and determine the middle value(probably as simple as vec size / 2?) and add that to the current total. 
+    Solution:
+        Followed my plan nearly exactly and it worked. I think it's very inefficient because of all of the looping, but it still works so *shrug*
+
+Day 5 Part 2: 
+    Problem: 
+        Need to take all of the incorrect lines and correct them according to the rules, then add up their middle numbers. 
+    Plan: 
+        oof. I already have the instances where a rule is broken, so I can add that to a separate vector of updates. 
+        Then I'll need to pass that along to another function that will go through and re-order that based on the rules, then I'll need to perform another pass to see if any rules have now been broken. Once it passes through completely without a rule violation we can add the line to a vector and continue to the next line. Once all lines are done we can run the middle number grab and add and it should be fine. Definitely do not want to update in place though, so this will be a bit challenging for me. 
+    Solution:
+        Proposed solution worked once I figured out that j = line[i].size() is in fact different than j = line[i].size() -1.....
+
+        
+
 
 
 
