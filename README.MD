@@ -145,6 +145,22 @@ Day 6 Part 2:
     Solution: 
         Exactly as planned, but it took longer than I expected so I thought I was in an infinite loop and kept killing it early....should have thought about how long that would take instead of assuming I was wrong. 
 
+Day 7 Part 1: 
+    Problem: 
+        We have a solution, and multiple numbers following it. We need to see what combinations can be made true if we use * or + operations on the numbers to get the test value. Also, everything must be purely operated left to right, not proper pemdas style. 0
+    Plan: 
+        I think just reading them in, and then starting with all of the same symbol followed by swapping out 1 operator at a time, if 1 doesn't work try again with 2, and keep doing that until we have tried all combinations of +/* to see if anything can solve the problem. If we see a valid solution, we should break early, otherwise we try everything and don't add it to the total if it can't be made true. 
+    Solution: 
+        Mostly correct in my plan, but had to update for large numbers. Shifted everything from int to long long and it seemed to catch all of my cases. Had to do a ton of reading on this one. 
+
+Day 7 Part 2: 
+    Problem:
+        Now we add in the '||' operator which just concatenates the numbers it's between. We have to check if we can combo +/*/|| to make any of the equations true. 
+    Plan: 
+        I have no idea. I will need to dig in on this one. I think it should be as simple as doing exactly what we did before but also have another situation where we try with combining the two numbers into a single number when we attempt ||.
+    Solution: 
+        I had to get help on this one. I have a really hard time with recursion, and this solution is very cool. Makes some sense after getting the help and working through it. 
+
         
 
 
