@@ -161,6 +161,27 @@ Day 7 Part 2:
     Solution: 
         I had to get help on this one. I have a really hard time with recursion, and this solution is very cool. Makes some sense after getting the help and working through it. 
 
+Day 8 Part 1: 
+    Problem: 
+        We have a grid of characters, any '.' is an empty space. Any other character is an "antenna" 
+        We need to find all locations where an antenna is equal distance to another antenna and then track the locations on the exact opposit side of both antenna's if they are valid(I.E. Lie perfectly in a line with the antennas.)
+    Plan: 
+        We need to track all locations that match character designations, so long as they aren't '.' characters. 
+        We then need to look in all directions to see if any matching character is evenly spaced. 
+        We then need to mark the immediate space in that line outside of both of those character locations as an "anti-node". 
+        Any given space that is an "antinode" should only be counted once. 
+        I have no clue how I would solve this, so this is another research project. 
+    Solution: 
+        The solution utilized Maps, a custom Hash, a Point struct and a set to track node locations. The solution is smaller than I would have expected, but I have to learn much more about these concepts if I'm going to improve. The biggest issue we ran across was that it wasn't accurately counting antenna locations that were ALSO antinodes. 
+
+Day 8 Part 2: 
+    Problem: 
+        Now any grid position that is in line with 2 antennas regardless of distance is valid. 
+    Plan: 
+        I think we just need to remove the midpoint calculations and we're good?
+    Solution: 
+        It wasn't JUST removing the midpoint, we also had to normalize the direction vector and update our position generation based on the new direction vector. Needed help but I had half the answer this time. 
+
         
 
 
