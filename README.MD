@@ -127,6 +127,24 @@ Day 5 Part 2:
     Solution:
         Proposed solution worked once I figured out that j = line[i].size() is in fact different than j = line[i].size() -1.....
 
+Day 6 Part 1: 
+    Problem: 
+        Need to watch the guards patrol. They are represented by a character ^, and the valid paths are represented by a ., with Blocking locations represented as character #. 
+        They always move straight forward til they hit a block, then turn 90 degrees to the right and continue straight forward. 
+        We need to find out how many spaces they move into before they exit out of the grid on one of the four sides. 
+    Plan: 
+        Probably create a node class with an enum that is "Guard", "ValidMove", "InvalidMove". Then just check the next direction and see if it's valid or invalid. Do this until we hit an edge(-1 on top or left or > size for the right and bottom.)
+    Solution: 
+        Basically exactly as I planned, used a set to ensure we only track any given position 1 time and then count the size of the set at the end. 
+
+Day 6 Part 2: 
+    Problem: 
+        Need to see how many positions we can add an obstruction to to create an infinite loop. 
+    Plan: 
+        Basically run it with updating each position to have an obstruction and see if that would cause an inf loop. We know if it's an infinite loop if we hit the same location going the same direction.
+    Solution: 
+        Exactly as planned, but it took longer than I expected so I thought I was in an infinite loop and kept killing it early....should have thought about how long that would take instead of assuming I was wrong. 
+
         
 
 
